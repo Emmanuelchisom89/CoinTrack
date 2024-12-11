@@ -1,0 +1,26 @@
+.toggle-prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    padding-top: .7rem;
+}
+
+    .css-gn0oko-MuiButtonBase-root-MuiToggleButton-root {
+        font-size: .75rem !important;
+        padding: .5rem !important;
+    }
+
+@media screen and (max-width: 800px) {
+    .css-gn0oko-MuiButtonBase-root-MuiToggleButton-root {
+        font-size: .65rem !important;
+        padding: .5rem !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .toggle-prices {
+        margin-bottom: 1.5rem;
+    }
+    
+}

@@ -1,0 +1,157 @@
+.list-row {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: all .3s ease;
+}
+
+.list-row:hover {
+    background-color: var(--darkgrey);
+}
+
+.list-row td {
+    text-align: left;
+    width: 18%;
+}
+
+.td-image {
+    width: 4rem !important;
+}
+
+.chip-mt {
+    margin-top: 0;
+}
+
+.watchlist {
+    border: 1.5px solid var(--green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: var(--green);
+    font-size: .8rem;
+    transition: all .3s ease;
+}
+
+.watchlist-red {
+    border: 1.5px solid var(--red);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: var(--red);
+    font-size: .8rem;
+    transition: all .3s ease;
+}
+
+#watchlist {
+    place-content: center;
+}
+
+.mobile-td-mkt,
+.mobile-vol {
+    display: none;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    .coin-logo {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    .td-icon {
+        display: none;
+    }
+
+    .desktop-td-mkt,
+    .desktop-vol {
+        display: none;
+    }
+
+    .mobile-td-mkt, 
+    .mobile-vol {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+    .td-image {
+        width: 3rem !important;
+    }
+
+    .css-13xfq8m-MuiTabPanel-root {
+        padding: 24px 0;
+    }
+
+    .css-13xfq8m-MuiTabPanel-root {
+        padding: 24px 10px !important;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .list-row td p, 
+    .list-row td h4 {
+        font-size: .85rem;
+    }
+
+    .coin-logo {
+        height: 1.8rem;
+        width: 1.8rem;
+    }
+
+    .mobile-vol {
+        display: none !important;
+    }
+
+    .price-chip,
+    .price-chip-red {
+        padding: .3rem .65rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .td-image {
+        width: 1.5rem !important;
+    }
+
+
+    .mobile-td-mkt {
+        display: none !important;
+    }
+
+    .css-13xfq8m-MuiTabPanel-root {
+        padding: 24px 5px !important;
+    }
+
+    .list-row td {
+        width: 15%;
+    }
+
+    .coin-logo {
+        height: 1.7rem;
+        width: 1.7rem;
+    }
+
+    .td-image {
+        width: .5rem !important;
+    }
+
+}
+
+@media only screen and (max-width: 365px) {
+    .list-row {
+        width: 100%;
+        padding: 1rem .2rem;
+    }
+
+    .list-row td {
+        text-align: center;
+        width: 16.5%;
+    }
+}

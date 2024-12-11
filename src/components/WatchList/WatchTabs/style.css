@@ -1,0 +1,18 @@
+.empty-watchlist {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.empty-watchlist p {
+    font-size: 1.2rem;
+    color: var(--grey);
+}
+
+.empty-watchlist button {
+    padding: 10px 15px;
+    background-color: var(--blue);
+    color: var(--darkgrey);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

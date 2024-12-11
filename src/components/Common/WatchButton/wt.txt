@@ -1,0 +1,245 @@
+import React, {useState, useEffect} from 'react'
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import { Tooltip } from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
+import { toast } from 'react-toastify';
+import { addToWatchlist, removeFromWatchlist } from '../../../functions/watchlist';
+import { confirmAlert } from 'react-confirm-alert';
+
+
+const WatchButton = ({ coin }) => {
+    const [isWatchlisted, setIsWatchlisted] = useState(false);
+    const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+
+  useEffect(() => {
+    const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+    setIsWatchlisted(watchlist.includes(coin.id)); // Update based on localStorage
+  }, [coin.id]);
+    
+
+    
+  const handleWatchlistToggle = (e) => {
+    e.preventDefault();
+
+    if (isWatchlisted) {
+      // Show confirmation dialog before removing
+      setShowConfirmDialog(true);
+    } else {
+      // Add to watchlist directly
+      const success = addToWatchlist(coin.id);
+      if (success.success) {
+        setIsWatchlisted(true);
+        toast.success(`${coin.name} has been added to the watchlist.`);
+/*         onWatchlistUpdate && onWatchlistUpdate(); // Update UI
+ */      } else {
+        toast.warning(success.message);
+      }
+    }
+  };
+
+  const confirmRemove = () => {
+    const success = removeFromWatchlist(coin.id);
+    if (success.success) {
+      setIsWatchlisted(false);
+      toast.info(`${coin.name} has been removed from the watchlist.`);
+      onWatchlistUpdate && onWatchlistUpdate(); // Update UI
+    } else {
+      toast.warning(success.message);
+    }
+    setShowConfirmDialog(false); // Hide dialog
+  };
+
+  const cancelRemove = () => {
+    setShowConfirmDialog(false); // Hide dialog
+  };
+    
+/*     const handleWatchlistToggle = (e) => {
+  e.preventDefault();
+
+  if (isWatchlisted) {
+    // Show confirmation popup before removing
+    confirmAlert({
+      title: "Confirm Removal",
+      message: `Are you sure you want to remove ${coin.name} from your watchlist?`,
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            const result = removeFromWatchlist(coin.id);
+            if (result.success) {
+              toast.success(result.message);
+              setCoins((prevCoins) => prevCoins.filter((c) => c.id !== coin.id)); // Update UI
+              setIsWatchlisted(false);
+            } else {
+              toast.error(result.message);
+            }
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            toast.info("Action canceled.");
+          },
+        },
+      ],
+    });
+  } else {
+    // Add to watchlist
+    const result = addToWatchlist(coin.id);
+    if (result.success) {
+      toast.success(result.message);
+      setIsWatchlisted(true);
+    } else {
+      toast.warning(result.message);
+    }
+  }
+};
+ */
+/*     const handleWatchlistToggle = (e) => {
+        e.preventDefault();
+    
+        if (isWatchlisted) {
+            const result = removeFromWatchlist(coin.id);
+            if (result.success) {
+                toast.info(result.message);
+            } else {
+                toast.warning(result.message);
+            }
+        } else {
+            const result = addToWatchlist(coin.id);
+            if (result.success) {
+                toast.success(result.message);
+            } else {
+                toast.warning(result.message);
+            }
+        }
+        setIsWatchlisted(!isWatchlisted);
+
+    }
+ */
+    return (
+              <Tooltip title={isWatchlisted ? "Remove from Watchlist" : "Add to Watchlist"} placement='bottom-end'> 
+
+          <div className={`${coin.price_change_percentage_24h > 0
+              ? "watchlist" : "watchlist-red"}`} onClick={handleWatchlistToggle}>
+              
+              {isWatchlisted
+                    ?
+                    <StarIcon />
+                    :
+                    <StarOutlineIcon />
+              }
+            </div>
+            </Tooltip>
+  )
+}
+
+export default WatchButton
+
+
+
+
+
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import { Tooltip } from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
+import { toast } from 'react-toastify';
+import { addToWatchlist, removeFromWatchlist } from '../../../functions/watchlist';
+import "./style.css"
+
+const WatchButton = ({ coin }) => {
+    const [isWatchlisted, setIsWatchlisted] = useState(false);
+    const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+    const [isHiding, setIsHiding] = useState(false);
+
+    useEffect(() => {
+        const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+        setIsWatchlisted(watchlist.includes(coin.id)); // Update based on localStorage
+    }, [coin.id]);
+
+    const handleWatchlistToggle = (e) => {
+        e.preventDefault();
+
+        if (isWatchlisted) {
+            // Show confirmation dialog before removing
+            setShowConfirmDialog(true);
+        } else {
+            // Add to watchlist directly
+            const success = addToWatchlist(coin.id);
+            if (success.success) {
+                setIsWatchlisted(true);
+                toast.success(`${coin.name} has been added to the watchlist.`);
+            } else {
+                toast.warning(success.message);
+            }
+        }
+    };
+
+    const confirmRemove = () => {
+        const success = removeFromWatchlist(coin.id);
+        if (success.success) {
+            setIsWatchlisted(false);
+            toast.info(`${coin.name} has been removed from the watchlist.`);
+            // onWatchlistUpdate && onWatchlistUpdate(); // You can call this if you need it
+        } else {
+            toast.warning(success.message);
+        }
+        setShowConfirmDialog(false); // Hide dialog
+    };
+
+    const cancelRemove = () => {
+        setShowConfirmDialog(false); // Hide dialog
+    };
+
+     const startClosingModal = () => {
+    setIsHiding(true); // Trigger bounce-out
+    setTimeout(() => {
+      setShowConfirmDialog(false);
+      setIsHiding(false); // Reset hiding state
+    }, 500); // Match CSS bounce-out duration
+  };
+
+
+    return (
+        <>
+            <Tooltip title={isWatchlisted ? "Remove from Watchlist" : "Add to Watchlist"} placement='bottom-end'>
+                <div
+                    className={`${coin.price_change_percentage_24h > 0 ? "watchlist" : "watchlist-red"}`}
+                    onClick={handleWatchlistToggle}
+                >
+                    {isWatchlisted ? <StarIcon /> : <StarOutlineIcon />}
+                </div>
+            </Tooltip>
+
+            {showConfirmDialog && (
+            <>
+            {/* Modal */}
+         {showConfirmDialog &&
+           ReactDOM.createPortal(
+          <>
+            {/* Overlay */}
+            <div
+              className="overlay"
+              onClick={cancelRemove} // Close modal when clicking outside
+            ></div>
+
+            {/* Modal Dialog */}
+            <div
+              className={`confirm-dialog ${isHiding ? "hidden" : ""}`}
+              onClick={(e) => e.stopPropagation()} // Prevent click propagation
+            >
+              <p>Are you sure you want to remove {coin.name} from the watchlist?</p>
+              <button onClick={confirmRemove}>Yes</button>
+              <button onClick={cancelRemove}>No</button>
+            </div>
+          </>,
+          document.body // Render modal in the root of the DOM
+        )}
+    </>            )}
+        </>
+    );
+};
+
+export default WatchButton;

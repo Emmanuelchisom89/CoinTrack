@@ -1,0 +1,12 @@
+.coin-info-desc p {
+    cursor: pointer !important;
+}
+
+.coin-info-desc a {
+    color: var(--blue) !important;
+    text-decoration: underline !important;
+}
+
+.view {
+    color: var(--grey) !important;
+}

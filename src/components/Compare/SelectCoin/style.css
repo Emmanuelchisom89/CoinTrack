@@ -1,0 +1,43 @@
+.coin-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 1.5rem;
+}
+
+.coin-flex-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+
+@media screen and (max-width: 800px) {
+    .coin-flex-div {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .coin-flex-div p {
+        margin: 0;
+    }
+}    
+
+@media screen and (max-width: 600px) {
+    .coin-flex-div p {
+        font-size: .82rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .coin-flex {
+        margin: 0 1rem 0 0;
+    }
+
+    .coin-days-flex {
+        margin: 0 1rem;
+    }
+}

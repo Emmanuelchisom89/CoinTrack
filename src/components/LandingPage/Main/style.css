@@ -1,0 +1,168 @@
+.flex-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 3rem;
+}
+
+.t-c-h, .r-t-h {
+    font-size: 6rem;
+    margin: 0;
+}
+
+.t-c-h {
+    color: var(--white);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--white);
+    transition: all .35s ease;
+}
+
+.t-c-h:hover {
+    color: var(--black);
+    -webkit-text-stroke-color: var(--white);
+}
+
+.r-t-h {
+    color: var(--blue);
+}
+
+.info-text {
+    font-size: 1rem;
+    color: var(--grey);
+}
+
+.btn-flex {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.right-component {
+    width: 50%;
+    position: relative;
+/*     padding: 1rem;
+ */}
+
+.iphone {
+    position: absolute;
+    z-index: 100;
+    min-width: 300px;
+    width: 50%;
+/*     height: auto;
+ */    right: 0;
+}
+
+.gradient {
+    position: absolute;
+    min-width: 250px;
+    width: 40%;
+/*     height: auto;
+ */    top: 8rem;
+    right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .t-c-h,
+    .r-t-h {
+        font-size: 5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+.iphone {
+        min-width: 250px;
+        width: 50%;
+    }
+
+    .gradient {
+        min-width: 200px;
+        width: 40%;
+        top: 6rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .flex-info {
+        flex-direction: column;
+    }
+
+    .left-component {
+        width: 100%;
+    }
+
+    .right-component {
+        padding-top: 3rem;
+        display: block;
+        width: 100%;
+/*         margin: 0 auto;
+ */    }
+
+    .iphone {
+        left: -2rem;
+        margin: 0 auto;
+    }
+    
+    .gradient {
+        left: 20%; 
+        margin: 0 auto;
+    }
+
+    .t-c-h,
+    .r-t-h {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .info-text {
+        text-align: center;
+    }
+
+    .btn-flex {
+        justify-content: center;
+    }
+
+    .t-c-h {
+        -webkit-text-stroke-width: 3px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .flex-info {
+        padding: 1.5rem 3rem;
+        margin-top: 2rem;
+    }
+
+    .t-c-h {
+        -webkit-text-stroke-width: 1px;
+    }
+
+    .info-text {
+        font-size: .9rem;
+    }
+
+    .t-c-h,
+    .r-t-h {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .t-c-h,
+    .r-t-h {
+        font-size: 2.55rem;
+    }
+
+    .btn,
+    .outlined-btn {
+        padding: .7rem;
+    }
+                
+}

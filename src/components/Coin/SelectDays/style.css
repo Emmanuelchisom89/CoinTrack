@@ -1,0 +1,47 @@
+.form-control-custom {
+    max-width: 300px !important;
+    /* Adjust as needed */
+    margin: auto;
+}
+
+.select-label {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.select-label {
+    color: var(--white) !important;
+}
+
+.select-days {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem .5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .select-days {
+        padding: 1rem 0 0 0;
+        align-self: flex-end;
+    }
+
+    .select-days p {
+        font-size: .85rem !important;
+        margin: 0;
+    }
+
+    .css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+        font-size: .8rem !important;
+        padding: 7px 32px 7px 10px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+        font-size: .75rem !important;
+    }
+}
