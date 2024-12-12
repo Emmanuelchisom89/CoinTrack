@@ -38,6 +38,15 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <script>
+    // Redirect to index.html for React routing
+    var path = window.location.pathname;
+    var redirectTo = "/CoinTrack" + "/index.html";
+    if (path !== "/CoinTrack/" && !path.endsWith("index.html")) {
+      window.location.replace(redirectTo);
+    }
+  </script>
+
 </body>
 
 </html>
