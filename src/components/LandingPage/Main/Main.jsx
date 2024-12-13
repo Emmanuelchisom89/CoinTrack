@@ -3,7 +3,6 @@ import "./style.css"
 import Button from '../../Common/Button/Button'
 import iphone from "../../../assets/iphone.png"
 import gradient from "../../../assets/gradient.png"
-import { RWebShare } from "react-web-share";
 import { toast } from "react-toastify";
 
 
@@ -11,7 +10,21 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const Main = () => {
-  const APP_URL = "https://ap1s.net/Q1TF3";
+  const handleShare = () => {
+      const APP_URL = "https://ap1s.net/Q1TF3";
+    if (navigator.share) {
+      navigator.share({
+        title: "Crypto Dashboard",
+        text: "Check out this amazing Crypto Dashboard made by Emmanuel Chisom!",
+        url: APP_URL,
+      })
+        .then(() => toast.success("App Shared Successfully!"))
+        .catch((err) => toast.error("Error sharing: " + err.message));
+    } else {
+      toast.warn("Sharing not supported on this device.");
+    }
+  };
+
   return (
       <div className='flex-info'>
           <div className='left-component'>
@@ -53,16 +66,7 @@ const Main = () => {
               <Button text={"Dashboard"} />
               </Link>
               
-              <RWebShare
-                data={{
-                text: "CryptoDashboard made by Emmanuel Chisom using React JS.",
-                url: APP_URL,
-                title: "CoinScope.",
-               }}
-                onClick={() => toast.info("App Shared!")}
-              >
-                <Button text={"Share App"} outlined={true} />
-              </RWebShare>
+                <Button text={"Share App"} outlined={true} onClick={handleShare} />
             </motion.div>
           </div>
 
