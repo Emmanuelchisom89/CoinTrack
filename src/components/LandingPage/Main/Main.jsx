@@ -11,6 +11,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const Main = () => {
+  const APP_URL = "https://ap1s.net/Q1TF3";
   return (
       <div className='flex-info'>
           <div className='left-component'>
@@ -55,7 +56,7 @@ const Main = () => {
               <RWebShare
                 data={{
                 text: "CryptoDashboard made by Emmanuel Chisom using React JS.",
-                url: "https://crypto-dashboard-jan.netlify.app",
+                url: APP_URL,
                 title: "CoinScope.",
                }}
                 onClick={() => toast.info("App Shared!")}
