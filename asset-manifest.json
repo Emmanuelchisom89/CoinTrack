@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CoinTrack/static/css/main.8644ff5d.css",
-    "main.js": "/CoinTrack/static/js/main.6cc5d76f.js",
+    "main.js": "/CoinTrack/static/js/main.af77a1ab.js",
     "static/media/iphone.png": "/CoinTrack/static/media/iphone.080029ada53f0cd57453.png",
     "static/media/gradient.png": "/CoinTrack/static/media/gradient.12a666ed10b3b442b534.png",
     "index.html": "/CoinTrack/index.html",
     "main.8644ff5d.css.map": "/CoinTrack/static/css/main.8644ff5d.css.map",
-    "main.6cc5d76f.js.map": "/CoinTrack/static/js/main.6cc5d76f.js.map"
+    "main.af77a1ab.js.map": "/CoinTrack/static/js/main.af77a1ab.js.map"
   },
   "entrypoints": [
     "static/css/main.8644ff5d.css",
-    "static/js/main.6cc5d76f.js"
+    "static/js/main.af77a1ab.js"
   ]
 }
